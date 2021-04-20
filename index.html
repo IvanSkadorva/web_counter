@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Visitors Counter</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap-table.min.css">
+
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+
+<div class="counter">
+    <span class="visitors-now"></span>
+    <span class="visitors-daily"></span>
+    <span class="visitors-total"></span>
+</div>
+
+<div id="modal-counter" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        &times;
+                    </span>
+                </button>
+                <h4 class="modal-title">
+                    Counter statistics
+                </h4>
+            </div>
+
+            <div class="modal-body">
+                <p>
+                    <b>Now:</b>
+                </p>
+                <table id="table-counter-now"
+                       data-toggle="table"
+                       data-search="true"
+                       data-show-columns="true"
+                       data-search-align="left"
+                       data-buttons-align="left"
+                       data-row-style="NS_COUNTER.rowStyle">
+                    <thead>
+                    <tr>
+                        <th data-field="expires" data-sortable="true" data-formatter="NS_COUNTER.timeFormatter">
+                            Expires
+                        </th>
+                        <th data-field="visitTime" data-sortable="true" data-formatter="NS_COUNTER.timeFormatter">
+                            Visit time
+                        </th>
+                        <th data-field="sessionId" data-sortable="true">
+                            Session ID
+                        </th>
+                        <th data-field="clientId" data-sortable="true">
+                            Client ID
+                        </th>
+                        <th data-field="clientIp" data-sortable="true">
+                            IP
+                        </th>
+                        <th data-field="clientBrowser" data-sortable="true">
+                            Browser
+                        </th>
+                        <th data-field="clientOs" data-sortable="true">
+                            OS
+                        </th>
+                        <th data-field="lastUrl" data-sortable="true" data-formatter="NS_COUNTER.urlFormatter">
+                            Last URL
+                        </th>
+                    </tr>
+                    </thead>
+                </table>
+
+                <hr>
+
+                <p>
+                    <b>Daily:</b>
+                </p>
+                <table id="table-counter-daily"
+                       data-toggle="table"
+                       data-search="true"
+                       data-show-columns="true"
+                       data-search-align="left"
+                       data-buttons-align="left"
+                       data-row-style="NS_COUNTER.rowStyle">
+                    <thead>
+                    <tr>
+                        <th data-field="visitTime" data-sortable="true" data-formatter="NS_COUNTER.timeFormatter">
+                            Visit time
+                        </th>
+                        <th data-field="sessionId" data-sortable="true">
+                            Session ID
+                        </th>
+                        <th data-field="clientId" data-sortable="true">
+                            Client ID
+                        </th>
+                        <th data-field="clientIp" data-sortable="true">
+                            IP
+                        </th>
+                        <th data-field="clientBrowser" data-sortable="true">
+                            Browser
+                        </th>
+                        <th data-field="clientOs" data-sortable="true">
+                            OS
+                        </th>
+                        <th data-field="lastUrl" data-sortable="true" data-formatter="NS_COUNTER.urlFormatter">
+                            Last URL
+                        </th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Close
+                </button>
+                <button id="btn-counter-refresh" type="button" class="btn btn-primary">
+                    Refresh
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./js/lib/jquery.min.js"></script>
+<script src="./js/lib/store.legacy.min.js"></script>
+<script src="./bootstrap/js/bootstrap.min.js"></script>
+<script src="./bootstrap/js/bootstrap-table.min.js"></script>
+
+<script src="./js/counter-handler.js"></script>
+<script src="./js/load-handler.js"></script>
+
+</body>
+
+</html>
